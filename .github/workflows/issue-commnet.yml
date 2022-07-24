@@ -15,6 +15,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v1
         with: 
           issue-number: ${{ github.event.issue.number }}
+          reactions: '+1'
           body:
             Thanks for raise the issue, we're gonna soon fix this issue. 
-          reactions: '+1' 
+        # reactions: '+1' 
