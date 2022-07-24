@@ -11,3 +11,7 @@
     * A basic Github Action
     * Issues Action event
     * Community issues action event
+
+GitHub Action Good YT Series 
+
+1. [Video](https://www.youtube.com/watch?v=-hVG9z0fCac&ab_channel=glich)
