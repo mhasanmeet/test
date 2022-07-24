@@ -1,0 +1,20 @@
+name: Create a comment on new issues
+
+on: 
+  issues: 
+    types: [opened]
+
+jobs: 
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "dump github issues"
+        run: echo '${{ toJSON(github.event) }}' | jq
+        shell: bash
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        with: 
+          issue-number: ${{ github.event.issue.number }}
+          body:
+            Thanks for raise the issue, we're gonna soon fix this issue. 
+          reactions: '+1'
