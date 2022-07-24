@@ -5,31 +5,19 @@ on:
     types: [opened]
 
 jobs: 
-  comment-with-action:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: "dump github issues"
-        run: echo '${{ toJSON(github.event) }}' | jq
-        shell: bash
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v1
-        with: 
-          issue-number: ${{ github.event.issue.number }}
-          body:
-            Thanks for raise the issue, we're gonna soon fix this issue.
-          reactions: '+1' 
-    steps:
-      - uses: wow-actions/welcome@v1
+      steps:
+      - uses: wow-actions/auto-comment@v1
         with:
-          github_token: ${{ secrets.ACTION_TOKEN }}
-          FIRST_ISSUE: |
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          issuesOpened: |
             👋 @{{ author }}
-             Thanks for opening your first issue here! Be sure to follow the issue template!
+            Thank you for raising an issue. We will will investigate into the matter and get back to you as soon as possible.
+            Please make sure you have given us as much context as possible.
 
-          FIRST_PR: |
+          pullRequestOpened: |
             👋 @{{ author }}
-            Thanks for opening this pull request! Please check out our contributing guidelines.
-
-          FIRST_PR_MERGED: |
-            🎉 @{{ author }}
-            Congrats on merging your first pull request! We here at behavior bot are proud of you!  
+            Thank you for raising your pull request.
+            Please make sure you have followed our contributing guidelines. We will review it as soon as possible
