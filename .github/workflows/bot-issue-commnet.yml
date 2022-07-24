@@ -16,7 +16,8 @@ jobs:
         with: 
           issue-number: ${{ github.event.issue.number }}
           body:
-            Thanks for raise the issue, we're gonna soon fix this issue. 
+            Thanks for raise the issue, we're gonna soon fix this issue.
+          reactions: '+1' 
     steps:
       - uses: wow-actions/welcome@v1
         with:
